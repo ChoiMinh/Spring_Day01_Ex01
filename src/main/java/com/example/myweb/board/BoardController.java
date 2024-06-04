@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class BoardController {
+	
 	// 어노테이션을 이용한 의존성 주입(DI) - 제어의 역전 IoC
 	@Autowired
 	private BoardDao boardDao;
@@ -31,6 +32,7 @@ public class BoardController {
 	
 	@RequestMapping(value = "/board/input.do", method = RequestMethod.GET)
 	public String boardInput() {
+		
 		// 입력 페이지로 forward
 		System.out.println(">>> GET - /board/input.do 요청 받음");
 
@@ -41,6 +43,7 @@ public class BoardController {
 	
 	@RequestMapping(value = "/board/input.do", method = RequestMethod.POST)
 	public String boardInputOk() {
+		
 		// 게시글 입력 Process - 데이터 저장 후 목록으로 Redirect한다.
 		System.out.println(">>> POST - /board/input.do 요청 받음");
 		
@@ -48,7 +51,6 @@ public class BoardController {
 		
 		return "redirect:list.do";
 	}
-	
 	
 	@RequestMapping(value = "/board/detail.do", method = RequestMethod.GET)
 	public String boardDetail(BoardDto boardDto, HttpServletRequest req) {
